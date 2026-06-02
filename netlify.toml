@@ -1,0 +1,35 @@
+# ─── Build Settings ───────────────────────────────────────────────────────────
+[build]
+  base            = ""
+  publish         = "dist"
+  command         = "npm run build"
+  functions       = "netlify/functions"
+
+# ─── Dev Settings (netlify dev) ───────────────────────────────────────────────
+[dev]
+  command         = "npm run dev"
+  port            = 5173
+  targetPort      = 5173
+  autoLaunch      = false
+
+# ─── Redirects ────────────────────────────────────────────────────────────────
+# Redirige /api/contact → función serverless (misma URL que en el código)
+[[redirects]]
+  from   = "/api/contact"
+  to     = "/.netlify/functions/contact"
+  status = 200
+
+# SPA fallback: todas las rutas desconocidas → index.html
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ─── Headers de seguridad ─────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
