@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Bootstrap CSS Custom Properties ────────────────────────────────────── */
+:root {
+  --bs-primary:   #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success:   #198754;
+  --bs-info:      #0dcaf0;
+  --bs-warning:   #ffc107;
+  --bs-danger:    #dc3545;
+  --bs-light:     #f8f9fa;
+  --bs-dark:      #212529;
+}
+
+/* ─── Base Styles ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-text-body bg-white antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-text-dark;
+  }
+}
+
+/* ─── Component Layer ──────────────────────────────────────────────────────── */
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-blue text-white font-heading font-semibold
+           px-7 py-3.5 rounded-full shadow-cta transition-all duration-300
+           hover:bg-brand-navy hover:scale-105 hover:shadow-lg
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-blue/50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white text-brand-navy font-heading font-semibold
+           px-7 py-3.5 rounded-full border-2 border-brand-navy/20 shadow-card
+           transition-all duration-300
+           hover:border-brand-blue hover:text-brand-blue hover:scale-105
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-blue/30;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-brand-blue font-heading font-semibold
+           transition-all duration-200 hover:gap-3;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100/80
+           transition-all duration-300 hover:shadow-card-lg hover:-translate-y-1;
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section heading */
+  .section-tag {
+    @apply inline-block text-brand-blue font-heading font-semibold text-sm tracking-widest uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight text-brand-navy;
+  }
+
+  .section-subtitle {
+    @apply text-text-body text-lg leading-relaxed max-w-2xl;
+  }
+
+  /* Pill badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 bg-brand-light text-brand-blue
+           text-xs font-heading font-semibold px-3 py-1.5 rounded-full;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-brand-navy font-body font-semibold text-[0.92rem] relative
+           transition-colors duration-200 hover:text-[#0d6efd]
+           after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5
+           after:bg-[#0d6efd] after:transition-all after:duration-300
+           hover:after:w-full;
+  }
+
+  .nav-link.active {
+    @apply text-[#0d6efd] after:w-full;
+  }
+
+  /* Divider with gradient */
+  .divider-brand {
+    @apply w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-sky rounded-full;
+  }
+
+  /* Feature bullet */
+  .feature-item {
+    @apply flex items-start gap-3;
+  }
+
+  .feature-icon {
+    @apply flex-shrink-0 w-5 h-5 text-brand-blue mt-0.5;
+  }
+
+  /* Star rating */
+  .star-filled {
+    @apply text-amber-400 fill-amber-400;
+  }
+}
+
+/* ─── Utilities ────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/40;
+  }
+
+  /* Scroll indicator */
+  .scroll-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scroll-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─── Animations ───────────────────────────────────────────────────────────── */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+
+.animate-fade-up,
+.animate-fade-in,
+.animate-slide-right {
+  opacity: 0;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
