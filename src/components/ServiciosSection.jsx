@@ -236,6 +236,43 @@ export default function ServiciosSection() {
       </div>
 
 
+      {/* ── Acordeón HTML estático (indexable por crawlers) ─────────── */}
+      <div className="mt-16 max-w-4xl mx-auto">
+        <h3 className="font-heading font-bold text-brand-navy text-xl text-center mb-8">
+          Información detallada de nuestros servicios en Temuco
+        </h3>
+        <div className="space-y-2">
+          {SERVICES.map((service, i) => {
+            const Icon = service.icon;
+            return (
+              <details key={i} className="group bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+                  <span className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: service.bg }}>
+                      <Icon size={16} style={{ color: service.color }} />
+                    </span>
+                    <span className="font-heading font-semibold text-brand-navy text-sm group-open:text-brand-blue transition-colors">
+                      {service.title}
+                    </span>
+                    <span className="hidden sm:inline text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                          style={{ color: service.color, backgroundColor: service.bg }}>
+                      {service.tag}
+                    </span>
+                  </span>
+                  <ChevronRight size={16} className="flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" />
+                </summary>
+                <div className="px-6 pb-5 pt-1">
+                  <p className="font-body text-text-body text-sm leading-relaxed">
+                    {service.detail}
+                  </p>
+                </div>
+              </details>
+            );
+          })}
+        </div>
+      </div>
+
       {/* ── Modal Detalle Servicio ──────────────────────────────────── */}
       {selected && (
         <div className="fixed inset-0 z-50 bg-brand-navy/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
