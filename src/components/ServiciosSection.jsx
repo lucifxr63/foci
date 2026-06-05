@@ -1,91 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { Ear, Droplets, BarChart2, Activity, Mic2, BookOpen, Brain, ArrowRight, X, Phone, Calendar, Users, ChevronLeft, ChevronRight } from 'lucide-react';
-
-/**
- * SERVICIOS — Lista oficial de 8 servicios reales de la clínica según nota de Figma.
- */
-const SERVICES = [
-  {
-    icon:  Ear,
-    title: 'Consulta General',
-    desc:  'Evaluación fonoaudiológica inicial para determinar necesidades terapéuticas.',
-    color: '#0d6efd',
-    bg:    '#eff6ff',
-    tag:   'Evaluación',
-    image: '/clinic-room1.png',
-    detail: 'Sesión de evaluación general donde se analizan las capacidades de comunicación, lenguaje, habla, voz, audición y deglución del paciente. Permite realizar un diagnóstico preliminar y trazar el plan de intervención más adecuado para cada caso.',
-  },
-  {
-    icon:  Droplets,
-    title: 'Lavado de Oídos',
-    desc:  'Irrigación auricular segura e indolora. Solo 20 minutos.',
-    color: '#0dcaf0',
-    bg:    '#ecfeff',
-    tag:   'Procedimiento',
-    image: '/service-ear-wash.png',
-    detail: 'Procedimiento clínico seguro e indoloro para remover tapones de cerumen acumulados mediante micro-curetas o irrigación de agua templada a presión controlada. Alivio inmediato de la sensación de oído tapado y mejora instantánea de la audición.',
-  },
-  {
-    icon:  BarChart2,
-    title: 'Audiometría',
-    desc:  'Medición precisa del umbral auditivo para cada frecuencia.',
-    color: '#198754',
-    bg:    '#f0fdf4',
-    tag:   'Diagnóstico',
-    image: '/hero-slide2.png',
-    detail: 'Examen preciso realizado dentro de una cabina sonoamortiguada para determinar los umbrales mínimos de audición por vía aérea y ósea. Permite trazar un audiograma exacto para el diseño de tratamientos o adaptación de audífonos.',
-  },
-  {
-    icon:  Users,
-    title: 'Terapia lenguaje / habla adulto',
-    desc:  'Rehabilitación y terapia de comunicación y lenguaje para adultos.',
-    color: '#6c757d',
-    bg:    '#f8f9fa',
-    tag:   'Terapia',
-    image: '/clinic-room2.png',
-    detail: 'Tratamiento enfocado en recuperar o potenciar habilidades comunicativas, del habla o del lenguaje en adultos que presenten dificultades debido a condiciones neurológicas (afasias, disartrias) o trastornos del desarrollo de la comunicación.',
-  },
-  {
-    icon:  BookOpen,
-    title: 'Terapia lenguaje / habla infantojuvenil',
-    desc:  'Apoyo terapéutico en el desarrollo del lenguaje para niños y jóvenes.',
-    color: '#dc3545',
-    bg:    '#fff1f2',
-    tag:   'Terapia',
-    image: '/professional.png',
-    detail: 'Terapia especializada orientada a niños y adolescentes que presentan retrasos en la adquisición del lenguaje, trastornos específicos del lenguaje (TEL), dificultades de habla o trastornos de la comunicación social, utilizando un enfoque lúdico y cercano.',
-  },
-  {
-    icon:  Brain,
-    title: 'Evaluación ADOS-2',
-    desc:  'Evaluación de referencia para el diagnóstico de autismo.',
-    color: '#0d6efd',
-    bg:    '#eff6ff',
-    tag:   'Especializado',
-    image: '/clinic-equipment.png',
-    detail: 'El ADOS-2 (Escala de Observación para el Diagnóstico del Autismo) es la prueba de referencia a nivel internacional para la evaluación y diagnóstico de personas con sospecha de Trastorno del Espectro Autista (TEA), adaptada a distintas edades y niveles de lenguaje.',
-  },
-  {
-    icon:  Activity,
-    title: 'Rehabilitación vestibular',
-    desc:  'Tratamiento especializado para el equilibrio y manejo de vértigo.',
-    color: '#6c757d',
-    bg:    '#f8f9fa',
-    tag:   'Especializado',
-    image: '/clinic-reception.png',
-    detail: 'Terapia física y ejercicios específicos diseñados para entrenar el cerebro y el oído interno a compensar las alteraciones del equilibrio. Altamente eficaz para pacientes con vértigo posicional (VPPB), inestabilidad y mareos crónicos.',
-  },
-  {
-    icon:  Mic2,
-    title: 'Trastorno de la voz',
-    desc:  'Evaluación y rehabilitación vocal para disfonías y cuidado vocal.',
-    color: '#dc3545',
-    bg:    '#fff1f2',
-    tag:   'Terapia',
-    image: '/service-otoscopy.png',
-    detail: 'Terapia fonoaudiológica enfocada en personas con disfonías funcionales u orgánicas (nódulos, pólipos) y profesionales que usan su voz como herramienta de trabajo (docentes, locutores, cantantes). Incluye técnicas de respiración, proyección y ergonomía vocal.',
-  },
-];
+import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, X, Phone, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SERVICES } from '../data/services';
 
 export default function ServiciosSection() {
   const [selected, setSelected] = useState(null);
@@ -107,9 +23,8 @@ export default function ServiciosSection() {
     const card = container.querySelector('.service-card-item');
     if (!card) return;
     const cardWidth = card.clientWidth;
-    const gap = 24; // gap-6 is 24px
+    const gap = 24;
     const scrollAmount = cardWidth + gap;
-    
     if (direction === 'next') {
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     } else {
@@ -139,9 +54,8 @@ export default function ServiciosSection() {
           </p>
         </div>
 
-        {/* ── Services Wrapper with Carousel (Mobile) and Grid (Desktop) ── */}
+        {/* ── Cards carousel ──────────────────────────────────────────── */}
         <div className="relative mb-12 group/services">
-          {/* Scrollable container */}
           <div
             ref={servicesContainerRef}
             onScroll={handleServicesScroll}
@@ -158,7 +72,6 @@ export default function ServiciosSection() {
                              cursor-pointer flex flex-col justify-between w-[76vw] sm:w-[280px] lg:w-full flex-shrink-0 snap-center"
                 >
                   <div>
-                    {/* Icon */}
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-4
                                  transition-all duration-300 group-hover:scale-110"
@@ -166,25 +79,17 @@ export default function ServiciosSection() {
                     >
                       <Icon size={22} style={{ color: service.color }} />
                     </div>
-
-                    {/* Tag */}
                     <span className="text-[10px] font-heading font-semibold px-2 py-0.5 rounded-full mb-2 inline-block"
                           style={{ color: service.color, backgroundColor: service.bg }}>
                       {service.tag}
                     </span>
-
-                    {/* Title */}
                     <h3 className="font-heading font-bold text-brand-navy text-sm leading-snug mb-2 group-hover:text-[#0d6efd] transition-colors">
-                      {service.title}
+                      {service.shortTitle}
                     </h3>
-
-                    {/* Desc */}
                     <p className="font-body text-text-muted text-xs leading-relaxed mb-4">
                       {service.desc}
                     </p>
                   </div>
-
-                  {/* Read more link */}
                   <span className="inline-flex items-center gap-1 text-[11px] font-heading font-bold text-[#0d6efd] group-hover:gap-2 transition-all mt-auto pt-2">
                     Ver detalles <ArrowRight size={12} />
                   </span>
@@ -193,8 +98,7 @@ export default function ServiciosSection() {
             })}
           </div>
 
-          {/* Navigation Arrows for Mobile Carousel */}
-          {/* Left Arrow */}
+          {/* Navigation Arrows for Mobile */}
           <button
             onClick={() => scrollServices('prev')}
             className={`absolute left-1 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full
@@ -205,8 +109,6 @@ export default function ServiciosSection() {
           >
             <ChevronLeft size={20} className="text-brand-blue" />
           </button>
-
-          {/* Right Arrow */}
           <button
             onClick={() => scrollServices('next')}
             className={`absolute right-1 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full
@@ -233,55 +135,58 @@ export default function ServiciosSection() {
           </button>
         </div>
 
-      </div>
-
-
-      {/* ── Acordeón HTML estático (indexable por crawlers) ─────────── */}
-      <div className="mt-16 max-w-4xl mx-auto">
-        <h3 className="font-heading font-bold text-brand-navy text-xl text-center mb-8">
-          Información detallada de nuestros servicios en Temuco
-        </h3>
-        <div className="space-y-2">
-          {SERVICES.map((service, i) => {
-            const Icon = service.icon;
-            return (
-              <details key={i} className="group bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
-                  <span className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                          style={{ backgroundColor: service.bg }}>
-                      <Icon size={16} style={{ color: service.color }} />
+        {/* ── Acordeón HTML estático (indexable por crawlers) ─────────── */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <h3 className="font-heading font-bold text-brand-navy text-xl text-center mb-8">
+            Información detallada de nuestros servicios en Temuco
+          </h3>
+          <div className="space-y-2">
+            {SERVICES.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <details key={i} className="group bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                  <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+                    <span className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                            style={{ backgroundColor: service.bg }}>
+                        <Icon size={16} style={{ color: service.color }} />
+                      </span>
+                      <span className="font-heading font-semibold text-brand-navy text-sm group-open:text-brand-blue transition-colors">
+                        {service.shortTitle}
+                      </span>
+                      <span className="hidden sm:inline text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                            style={{ color: service.color, backgroundColor: service.bg }}>
+                        {service.tag}
+                      </span>
                     </span>
-                    <span className="font-heading font-semibold text-brand-navy text-sm group-open:text-brand-blue transition-colors">
-                      {service.title}
-                    </span>
-                    <span className="hidden sm:inline text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                          style={{ color: service.color, backgroundColor: service.bg }}>
-                      {service.tag}
-                    </span>
-                  </span>
-                  <ChevronRight size={16} className="flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" />
-                </summary>
-                <div className="px-6 pb-5 pt-1">
-                  <p className="font-body text-text-body text-sm leading-relaxed">
-                    {service.detail}
-                  </p>
-                </div>
-              </details>
-            );
-          })}
+                    <ChevronRight size={16} className="flex-shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" />
+                  </summary>
+                  <div className="px-6 pb-5 pt-1">
+                    <p className="font-body text-text-body text-sm leading-relaxed mb-3">
+                      {service.detail}
+                    </p>
+                    <Link
+                      to={`/${service.slug}`}
+                      className="inline-flex items-center gap-1 text-xs font-heading font-bold hover:gap-2 transition-all"
+                      style={{ color: service.color }}
+                    >
+                      Ver página completa con preguntas frecuentes <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </details>
+              );
+            })}
+          </div>
         </div>
+
       </div>
 
       {/* ── Modal Detalle Servicio ──────────────────────────────────── */}
       {selected && (
         <div className="fixed inset-0 z-50 bg-brand-navy/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          {/* Backdrop click close */}
           <div className="absolute inset-0" onClick={() => setSelected(null)} />
-          
           <div className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-2xl w-full relative z-10 flex flex-col max-h-[90vh]">
-            
-            {/* Close Button */}
+
             <button
               onClick={() => setSelected(null)}
               className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/40 text-white
@@ -291,11 +196,10 @@ export default function ServiciosSection() {
               <X size={16} />
             </button>
 
-            {/* Header Image */}
             <div className="relative h-60 md:h-64 w-full flex-shrink-0">
               <img
                 src={selected.image}
-                alt={selected.title}
+                alt={selected.shortTitle}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -307,19 +211,15 @@ export default function ServiciosSection() {
               </div>
             </div>
 
-            {/* Content Body */}
             <div className="p-6 md:p-8 overflow-y-auto scroll-hide flex-1">
               <h3 className="font-heading font-extrabold text-brand-navy text-2xl mb-4">
-                {selected.title}
+                {selected.shortTitle}
               </h3>
-
               <div className="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-sky rounded-full mb-5" />
-
               <p className="font-body text-text-body text-sm leading-relaxed mb-6">
                 {selected.detail}
               </p>
 
-              {/* Extra details stats info */}
               <div className="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl mb-6">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
@@ -341,7 +241,6 @@ export default function ServiciosSection() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={scrollToContact}
@@ -349,20 +248,18 @@ export default function ServiciosSection() {
                              font-heading font-bold py-3.5 px-6 rounded-xl text-sm transition-all duration-300"
                   style={{ backgroundColor: '#0d6efd', boxShadow: '0 4px 14px rgba(13,110,253,0.3)' }}
                 >
-                  Agendar este servicio
-                  <ArrowRight size={16} />
+                  Agendar este servicio <ArrowRight size={16} />
                 </button>
-                <button
-                  onClick={() => setSelected(null)}
-                  className="inline-flex items-center justify-center gap-2 border border-slate-200
-                             text-slate-600 font-heading font-bold py-3.5 px-6 rounded-xl text-sm
-                             transition-all duration-300 hover:bg-slate-50"
+                <Link
+                  to={`/${selected.slug}`}
+                  className="inline-flex items-center justify-center gap-2 border-2 border-[#0d6efd]
+                             text-[#0d6efd] font-heading font-bold py-3.5 px-6 rounded-xl text-sm
+                             transition-all duration-300 hover:bg-blue-50"
                 >
-                  Volver
-                </button>
+                  Más información
+                </Link>
               </div>
             </div>
-
           </div>
         </div>
       )}
