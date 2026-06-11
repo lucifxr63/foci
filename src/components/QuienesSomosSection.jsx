@@ -22,30 +22,30 @@ const VALUES = [
 const PROFILES = [
   {
     name: 'Lesly Villagrán Obreque',
-    role: 'Directora Clínica',
+    role: 'DIRECTORA CLÍNICA',
     subtitle: 'Fonoaudióloga Directora de FOCI',
-    image: '/professional-lesly-v3.png',
-    imgPosition: 'object-top',
-    bio: 'Lidera FOCI con una visión de atención auditiva personalizada, oportuna y humana. Especialista en otoscopía y lavado de oídos seguro, enfocada en mejorar el bienestar de sus pacientes.',
+    image: '/professional-lesly-clean.png?v=2',
+    bio: 'Como fonoaudióloga y directora de FOCI, lidera el centro con una visión de atención personalizada y cercana. Especialista en otoscopía, videotoscopía y lavado de oídos seguro, se dedica a entregar soluciones precisas y un cuidado integral de la audición para mejorar la calidad de vida de cada uno de sus pacientes.',
     credentials: [
       'Fonoaudióloga Certificada',
-      'Especialista en Otoscopía y Lavado Clínico',
+      'Especialista en Otoscopía y Lavado de Oídos',
       'Experta en Diagnóstico y Cuidado Auditivo',
-      'Atención a niños (desde 3 años), adultos y mayores',
+      'Atención para niños (desde 3 años), adultos y adultos mayores',
+      'Comprometida con el cuidado integral de la salud auditiva',
     ],
   },
   {
-    name: 'Carla Valenzuela',
-    role: 'Fonoaudióloga Clínica',
+    name: 'Carla Vallejos',
+    role: 'FONOAUDIÓLOGA CLÍNICA',
     subtitle: 'Especialista en Lenguaje e Intervención',
-    image: '/professional-carla-v3.png',
-    imgPosition: 'object-top',
-    bio: 'Dedicada a la evaluación e intervención integral en población infantojuvenil y adultos. Especialista en potenciar habilidades comunicativas, de habla y deglución centrada en la familia.',
+    image: '/professional-carla-clean.png?v=2',
+    bio: 'Dedicada a la evaluación e intervención integral en población infantojuvenil y adultos. Carla se especializa en acompañar el desarrollo comunicativo de los más pequeños y adultos con desafíos neurológicos, entregando una atención dedicada, experta y centrada en la familia.',
     credentials: [
-      'Fonoaudióloga Licenciada',
-      'Especialista en Lenguaje y Habla Infantojuvenil',
-      'Certificada en Escala de Observación ADOS-2',
-      'Diplomada en Neurorrehabilitación y Deglución',
+      'Atención Temprana para potenciar el desarrollo desde los primeros años',
+      'Abordaje de Diagnósticos Neurológicos como TEA, Síndrome de Down y Discapacidad Intelectual',
+      'Tratamiento de Apraxia del habla infantil',
+      'Apoyo a Adultos con dificultades de habla y lenguaje',
+      'Comprometida con potenciar las habilidades comunicativas y el bienestar del paciente',
     ],
   },
 ];
@@ -53,32 +53,35 @@ const PROFILES = [
 export default function QuienesSomosSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [profilesScrollIndex, setProfilesScrollIndex] = useState(0);
-  const profilesContainerRef = useRef(null);
 
-  const handleProfilesScroll = (e) => {
-    const container = e.currentTarget;
-    const scrollLeft = container.scrollLeft;
-    const width = container.clientWidth;
-    // Calculate scroll index based on scroll position
-    const index = Math.round(scrollLeft / width);
-    setProfilesScrollIndex(index);
+  // Carousel for profiles
+  const [activeProfileIndex, setActiveProfileIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const nextProfile = () => {
+    setActiveProfileIndex((prev) => (prev === PROFILES.length - 1 ? 0 : prev + 1));
   };
 
-  const scrollProfiles = (direction) => {
-    const container = profilesContainerRef.current;
-    if (!container) return;
-    const card = container.querySelector('.card');
-    if (!card) return;
-    const cardWidth = card.clientWidth;
-    const gap = 24; // gap-6 is 24px
-    const scrollAmount = cardWidth + gap;
-    
-    if (direction === 'next') {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    } else {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  const prevProfile = () => {
+    setActiveProfileIndex((prev) => (prev === 0 ? PROFILES.length - 1 : prev - 1));
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    const swipeThreshold = 50;
+    if (diff > swipeThreshold) {
+      nextProfile();
+    } else if (diff < -swipeThreshold) {
+      prevProfile();
     }
   };
 
@@ -212,93 +215,124 @@ export default function QuienesSomosSection() {
           </div>
         )}
 
-        {/* ── Professional Profiles Wrapper ───────────────────────────────── */}
-        <div className="relative max-w-4xl mx-auto group/profiles">
-          {/* Scrollable Container */}
-          <div
-            ref={profilesContainerRef}
-            onScroll={handleProfilesScroll}
-            className="flex overflow-x-auto md:grid md:grid-cols-2 gap-6 md:gap-8 pb-6 md:pb-0 scroll-hide snap-x snap-mandatory items-start px-12 md:px-0"
-          >
-            {PROFILES.map((profile, index) => (
-              <div
-                key={index}
-                className="card overflow-hidden w-[76vw] sm:w-[380px] md:w-full flex-shrink-0 snap-center cursor-pointer group relative"
-                onClick={() => setSelectedImage(profile.image)}
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={profile.image}
-                    alt={`Fonoaudióloga ${profile.name}`}
-                    className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                  {/* Hover overlay with zoom icon */}
-                  <div className="absolute inset-0 bg-brand-navy/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/90 p-4 rounded-full text-brand-navy shadow-cta transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <ZoomIn size={24} className="text-brand-blue" />
+        {/* ── Professional Profiles Wrapper (Carousel) ────────────────────── */}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-0 group/profiles">
+          
+          {/* Carousel Viewport */}
+          <div className="overflow-hidden rounded-3xl shadow-card border border-slate-100/90 bg-white">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${activeProfileIndex * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {PROFILES.map((profile, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 md:flex md:flex-row items-stretch cursor-default bg-white"
+                >
+                  {/* Photo Left Half */}
+                  <div className="relative h-72 sm:h-96 md:h-auto md:w-[40%] flex-shrink-0 overflow-hidden bg-white flex items-end">
+                    <img
+                      src={profile.image}
+                      alt={`Fonoaudióloga ${profile.name}`}
+                      className="w-full h-full object-cover object-bottom"
+                    />
+                    {/* Seamless Fade Gradient Overlay (Desktop Only) */}
+                    <div className="hidden md:block absolute inset-y-0 right-0 w-28 bg-gradient-to-r from-transparent to-white pointer-events-none" />
+                  </div>
+
+                  {/* Info Right Half */}
+                  <div className="p-8 sm:p-10 md:w-[60%] flex flex-col justify-between text-left">
+                    <div>
+                      {/* Role */}
+                      <span className="text-xs font-heading font-bold tracking-widest text-[#0d6efd] uppercase block mb-1">
+                        {profile.role}
+                      </span>
+
+                      {/* Name */}
+                      <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-brand-navy mb-1 leading-tight">
+                        {profile.name}
+                      </h3>
+
+                      {/* Subtitle */}
+                      <p className="text-brand-blue font-heading font-medium text-sm sm:text-base mb-4">
+                        {profile.subtitle}
+                      </p>
+
+                      {/* Blue horizontal divider line */}
+                      <div className="w-10 h-0.5 bg-[#0d6efd] mb-5" />
+
+                      {/* Bio Paragraph */}
+                      <p className="text-text-body text-[0.88rem] sm:text-[0.93rem] leading-relaxed mb-6">
+                        {profile.bio}
+                      </p>
+
+                      {/* Credentials Checklist */}
+                      <ul className="space-y-2.5 mb-8">
+                        {profile.credentials.map((cred, i) => (
+                          <li key={i} className="flex items-start gap-3 text-text-body text-[0.82rem] sm:text-[0.88rem] leading-relaxed">
+                            <GraduationCap className="w-4 h-4 text-[#0d6efd] mt-1 flex-shrink-0" />
+                            <span>{cred}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+
+                    {/* Booking Link */}
+                    <a
+                      href="#contacto"
+                      className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#0d6efd] hover:text-brand-navy hover:underline transition-all mt-auto self-start"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Ver perfil profesional
+                    </a>
                   </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Chevrons */}
+          <button
+            onClick={prevProfile}
+            className="absolute left-[-20px] lg:left-[-55px] top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full
+                       bg-white shadow-card border border-slate-100 flex items-center justify-center
+                       text-brand-navy hover:text-[#0d6efd] hover:scale-105 active:scale-95 transition-all
+                       opacity-100 md:opacity-0 md:group-hover/profiles:opacity-100 md:focus:opacity-100"
+            aria-label="Perfil anterior"
+          >
+            <ChevronLeft size={22} />
+          </button>
+          <button
+            onClick={nextProfile}
+            className="absolute right-[-20px] lg:right-[-55px] top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full
+                       bg-white shadow-card border border-slate-100 flex items-center justify-center
+                       text-brand-navy hover:text-[#0d6efd] hover:scale-105 active:scale-95 transition-all
+                       opacity-100 md:opacity-0 md:group-hover/profiles:opacity-100 md:focus:opacity-100"
+            aria-label="Perfil siguiente"
+          >
+            <ChevronRight size={22} />
+          </button>
+
+          {/* Bottom Dot Indicators */}
+          <div className="flex justify-center gap-1.5 mt-6">
+            {PROFILES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveProfileIndex(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === activeProfileIndex ? 'w-6 bg-[#0d6efd]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+                aria-label={`Ir al perfil de ${PROFILES[i].name}`}
+              />
             ))}
           </div>
 
-          {/* Navigation Arrows for Mobile (Horizontal Scroll) */}
-          {/* Left Arrow: Show only when scrolled to the right (profilesScrollIndex > 0) */}
-          <button
-            onClick={() => scrollProfiles('prev')}
-            className={`absolute left-1 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full
-                       bg-white/90 backdrop-blur shadow-lg border border-slate-100 flex items-center justify-center
-                       text-brand-navy active:scale-95 transition-all duration-300 md:hidden
-                       ${profilesScrollIndex > 0 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}
-            aria-label="Ver perfil anterior"
-          >
-            <ChevronLeft size={20} className="text-brand-blue" />
-          </button>
-
-          {/* Right Arrow: Show only when at the beginning (profilesScrollIndex === 0) */}
-          <button
-            onClick={() => scrollProfiles('next')}
-            className={`absolute right-1 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full
-                       bg-white/90 backdrop-blur shadow-lg border border-slate-100 flex items-center justify-center
-                       text-brand-navy active:scale-95 transition-all duration-300 md:hidden
-                       ${profilesScrollIndex === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}
-            aria-label="Ver siguiente perfil"
-          >
-            <ChevronRight size={20} className="text-brand-blue" />
-          </button>
         </div>
 
       </div>
-
-      {/* ── Lightbox Modal ───────────────────────────────────────────────── */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedImage(null)}
-        >
-          {/* Close button */}
-          <button
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/10 hover:bg-white/20 active:scale-95 text-white p-3 rounded-full backdrop-blur transition-all duration-200 z-10"
-            aria-label="Cerrar modal"
-          >
-            <X size={24} />
-          </button>
-          
-          {/* Modal content */}
-          <div
-            className="relative max-w-full max-h-[90vh] md:max-h-[85vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage}
-              alt="Perfil ampliado"
-              className="max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vh] max-h-[90vh] md:max-h-[95vh] rounded-xl shadow-2xl object-contain border border-white/10 animate-scale-up"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
