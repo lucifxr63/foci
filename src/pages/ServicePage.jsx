@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { ArrowLeft, Phone, ChevronRight, CheckCircle2, Calendar, MapPin, Clock } from 'lucide-react';
 import { SERVICES } from '../data/services';
 import FociLogo from '../components/FociLogo';
@@ -23,7 +23,7 @@ export default function ServicePage() {
 
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{service.metaTitle}</title>
         <meta name="description" content={service.metaDesc} />
         <link rel="canonical" href={`https://foci.cl/${service.slug}`} />
@@ -41,7 +41,7 @@ export default function ServicePage() {
             "acceptedAnswer": { "@type": "Answer", "text": item.a }
           }))
         })}</script>
-      </Helmet>
+      </Head>
 
       <div className="min-h-screen bg-white flex flex-col">
 
