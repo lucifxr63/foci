@@ -148,7 +148,7 @@ export const SERVICES = [
     metaDesc: 'Evaluación ADOS-2 en Temuco para diagnóstico del Trastorno del Espectro Autista (TEA). Profesional certificada. Aplicada desde los 12 meses. Informe clínico incluido. Agenda en FOCI.',
     highlights: [
       'Prueba estándar internacional para evaluación de TEA',
-      'Profesional certificada en ADOS-2 (Carla Valenzuela)',
+      'Profesional certificada en ADOS-2 (Carla Vallejos)',
       'Adaptada a distintas edades y niveles de lenguaje (5 módulos)',
       'Informe clínico detallado al finalizar',
     ],
@@ -157,7 +157,7 @@ export const SERVICES = [
       { q: '¿Desde qué edad se aplica?', a: 'Desde los 12 meses (con módulo específico para no hablantes) hasta la adultez. Cuenta con 5 módulos que se seleccionan según edad y nivel de lenguaje.' },
       { q: '¿El ADOS-2 por sí solo diagnostica el autismo?', a: 'Es una herramienta de evaluación fundamental, pero el diagnóstico de TEA es multidisciplinario. El resultado del ADOS-2 debe integrarse con otras evaluaciones (neurológica, psicológica) para un diagnóstico completo.' },
       { q: '¿Cuánto dura la evaluación?', a: 'Entre 40 y 60 minutos según el módulo aplicado, más tiempo de puntuación e informe. Se entrega informe escrito detallado con los resultados.' },
-      { q: '¿La fonoaudióloga de FOCI está certificada en ADOS-2?', a: 'Sí. Carla Valenzuela cuenta con certificación específica en la aplicación e interpretación del ADOS-2.' },
+      { q: '¿La fonoaudióloga de FOCI está certificada en ADOS-2?', a: 'Sí. Carla Vallejos cuenta con certificación específica en la aplicación e interpretación del ADOS-2.' },
     ],
   },
   {

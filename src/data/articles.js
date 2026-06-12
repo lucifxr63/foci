@@ -19,7 +19,7 @@ export const ARTICLES = [
     excerpt: 'Cada niño tiene su ritmo, pero existen hitos esperables del lenguaje a cada edad. Conoce las señales de alerta y cuándo conviene una evaluación fonoaudiológica.',
     date: '2026-05-12',
     dateLabel: '12 de mayo de 2026',
-    author: 'Carla Valenzuela',
+    author: 'Carla Vallejos',
     authorRole: 'Fonoaudióloga Clínica · Especialista infantojuvenil',
     image: '/professional.png',
     category: 'Lenguaje Infantil',
