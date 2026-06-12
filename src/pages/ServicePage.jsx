@@ -33,6 +33,10 @@ export default function ServicePage() {
         <meta property="og:url" content={`https://foci.cl/${service.slug}`} />
         <meta property="og:image" content="https://foci.cl/og-image.jpg" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={service.metaTitle} />
+        <meta name="twitter:description" content={service.metaDesc} />
+        <meta name="twitter:image" content="https://foci.cl/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

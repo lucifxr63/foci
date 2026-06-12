@@ -14,17 +14,24 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <Head>
-        <title>FOCI | Fonoaudióloga Temuco | Evaluación Auditiva y Fonoaudiología Clínica</title>
-        <meta name="description" content="FOCI — Fonoaudiología Clínica Integral en Temuco, Chile. Especialistas en audiometría, lavado de oídos, otoscopía, terapia del lenguaje, evaluación ADOS-2 y rehabilitación vestibular. Atención desde los 3 años." />
+        <title>FOCI | Fonoaudiología y Evaluación Auditiva en Temuco</title>
+        <meta name="description" content="Fonoaudiología clínica en Temuco: audiometría, lavado de oídos, terapia del lenguaje, ADOS-2 y rehabilitación vestibular. Atención desde los 3 años." />
         <meta name="keywords" content="fonoaudiología Temuco, evaluación auditiva Temuco, lavado de oídos Temuco, audiometría Temuco, terapia del lenguaje Temuco, ADOS-2 Temuco, fonoaudiólogo Temuco" />
         <link rel="canonical" href="https://foci.cl/" />
-        <meta property="og:title" content="FOCI | Fonoaudióloga Temuco | Evaluación Auditiva Integral" />
-        <meta property="og:description" content="Especialistas en audiometría, lavado de oídos, terapia del lenguaje y fonoaudiología clínica en Temuco, Chile. Atención Lun–Sáb. +56 9 6554 5777." />
+        <meta property="og:title" content="FOCI | Fonoaudiología y Evaluación Auditiva en Temuco" />
+        <meta property="og:description" content="Audiometría, lavado de oídos, terapia del lenguaje y más en Temuco. Atención Lun–Sáb. Agenda: +56 9 6554 5777." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://foci.cl/" />
         <meta property="og:image" content="https://foci.cl/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="FOCI — Fonoaudiología Clínica Integral en Temuco" />
         <meta property="og:locale" content="es_CL" />
         <meta property="og:site_name" content="FOCI — Fonoaudiología Clínica Integral" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FOCI | Fonoaudiología y Evaluación Auditiva en Temuco" />
+        <meta name="twitter:description" content="Audiometría, lavado de oídos, terapia del lenguaje y más en Temuco. Atención Lun–Sáb. Agenda: +56 9 6554 5777." />
+        <meta name="twitter:image" content="https://foci.cl/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

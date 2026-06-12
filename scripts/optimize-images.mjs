@@ -4,7 +4,7 @@
 // 2) Genera /public/og-image.jpg (1200x630) de marca para social sharing.
 
 import sharp from 'sharp';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -24,6 +24,7 @@ async function toWebp() {
   for (const file of TO_WEBP) {
     const src = join(PUBLIC, file);
     const out = join(PUBLIC, file.replace(/\.(png|jpe?g)$/i, '.webp'));
+    try { await access(src); } catch { console.log(`  (omitido, ya convertido) ${file}`); continue; }
     const input = await readFile(src);
     const buf = await sharp(input).webp({ quality: 80 }).toBuffer();
     await writeFile(out, buf);
@@ -45,12 +46,15 @@ async function ogImage() {
     <rect width="1200" height="630" fill="url(#bg)"/>
     <circle cx="1080" cy="120" r="260" fill="#ffffff" opacity="0.06"/>
     <circle cx="120" cy="560" r="200" fill="#ffffff" opacity="0.05"/>
-    <text x="90" y="250" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="bold" fill="#ffffff" letter-spacing="2">FOCI</text>
-    <text x="96" y="320" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="600" fill="#dbeafe">Fonoaudiología Clínica Integral</text>
-    <rect x="98" y="350" width="120" height="6" rx="3" fill="#0dcaf0"/>
-    <text x="96" y="430" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#bfdbfe">Audiometría · Lavado de oídos · Terapia de lenguaje · Deglución</text>
-    <text x="96" y="540" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="bold" fill="#ffffff">Temuco, Chile</text>
-    <text x="96" y="585" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#dbeafe">+56 9 6554 5777 · foci.cl</text>
+    <text x="90" y="235" font-family="Arial, Helvetica, sans-serif" font-size="140" font-weight="bold" fill="#ffffff" letter-spacing="2">FOCI</text>
+    <text x="96" y="305" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="600" fill="#dbeafe">Fonoaudiología Clínica Integral</text>
+    <rect x="98" y="335" width="120" height="6" rx="3" fill="#0dcaf0"/>
+    <text x="96" y="410" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#bfdbfe">Audiometría · Lavado de oídos · Terapia de lenguaje · Deglución</text>
+    <text x="96" y="525" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="bold" fill="#ffffff">Temuco, Chile</text>
+    <text x="96" y="570" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#dbeafe">+56 9 6554 5777 · foci.cl</text>
+    <!-- CTA -->
+    <rect x="800" y="486" width="320" height="78" rx="39" fill="#0dcaf0"/>
+    <text x="960" y="536" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="bold" fill="#13294b">Agenda tu hora  →</text>
   </svg>`;
   const out = join(PUBLIC, 'og-image.jpg');
   const buf = await sharp(Buffer.from(svg)).jpeg({ quality: 88 }).toBuffer();
