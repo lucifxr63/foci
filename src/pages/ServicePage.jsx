@@ -30,7 +30,7 @@ export default function ServicePage() {
         <meta property="og:title" content={service.metaTitle} />
         <meta property="og:description" content={service.metaDesc} />
         <meta property="og:url" content={`https://foci.cl/${service.slug}`} />
-        <meta property="og:image" content="https://foci.cl/logo-foci.png" />
+        <meta property="og:image" content={`https://foci.cl${service.image}`} />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -40,6 +40,38 @@ export default function ServicePage() {
             "name": item.q,
             "acceptedAnswer": { "@type": "Answer", "text": item.a }
           }))
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://foci.cl/" },
+            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://foci.cl/#servicios" },
+            { "@type": "ListItem", "position": 3, "name": service.shortTitle, "item": `https://foci.cl/${service.slug}` }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": service.title,
+          "description": service.detail,
+          "url": `https://foci.cl/${service.slug}`,
+          "image": `https://foci.cl${service.image}`,
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "areaServed": { "@type": "City", "name": "Temuco" },
+          "provider": {
+            "@type": ["MedicalClinic", "LocalBusiness"],
+            "name": "FOCI — Fonoaudiología Clínica Integral",
+            "url": "https://foci.cl",
+            "telephone": "+56965545777",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "General Mackenna 583, Of. 504",
+              "addressLocality": "Temuco",
+              "addressRegion": "La Araucanía",
+              "addressCountry": "CL"
+            }
+          }
         })}</script>
       </Head>
 
