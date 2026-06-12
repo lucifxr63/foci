@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, ChevronRight } from 'lucide-react';
 import FociLogo from './FociLogo';
+import { waLink, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 const NAV_LINKS = [
   { label: 'Inicio',         href: '#hero'          },
@@ -85,8 +86,9 @@ export default function Navbar() {
 
             {/* Un solo CTA compacto */}
             <a
-              href="#contacto"
-              onClick={(e) => handleNavClick(e, '#contacto')}
+              href={waLink(WA_GENERIC_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
               id="navbar-cta"
               className="inline-flex items-center gap-1.5 text-white font-heading font-semibold
                          text-xs py-2 px-4 rounded-full transition-all duration-300
@@ -137,8 +139,9 @@ export default function Navbar() {
                           text-brand-navy font-medium text-sm py-2.5 rounded-full">
               <Phone size={14} style={{ color: '#0d6efd' }} /> +56 9 6554 5777
             </a>
-            <a href="#contacto"
-               onClick={(e) => handleNavClick(e, '#contacto')}
+            <a href={waLink(WA_GENERIC_MESSAGE)}
+               target="_blank"
+               rel="noopener noreferrer"
                className="flex-1 flex items-center justify-center text-white text-sm
                           font-semibold py-2.5 rounded-full"
                style={{ backgroundColor: '#0d6efd' }}>

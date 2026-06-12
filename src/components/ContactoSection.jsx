@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin, Clock, Calendar } from 'lucide-react';
+import { waLink, waServiceMessage, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 // En producción (Netlify): redirigido a /.netlify/functions/contact via netlify.toml
 // En desarrollo local: usa el backend Express en localhost:5000
@@ -335,7 +336,7 @@ export default function ContactoSection() {
               </div>
 
               <a
-                href="https://wa.me/56965545777"
+                href={waLink(form.servicio ? waServiceMessage(form.servicio) : WA_GENERIC_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#198754] text-white

@@ -1,5 +1,6 @@
-import { Phone, Calendar, ArrowRight, X } from 'lucide-react';
+import { Phone, Calendar, X, MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { waLink } from '../lib/whatsapp';
 
 const SERVICIOS = [
   'Evaluación Auditiva Integral',
@@ -31,11 +32,11 @@ export default function ReservaWidget() {
 
   const handleChange = (e) => setForm(p => ({ ...p, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.nombre || !form.telefono || !form.servicio) return;
-    // Simula envío (conectar con el backend real si se desea)
-    await new Promise(r => setTimeout(r, 600));
+    const msg = `Hola FOCI 👋, soy ${form.nombre}. Quiero reservar una hora para *${form.servicio}*. Mi teléfono de contacto: ${form.telefono}.`;
+    window.open(waLink(msg), '_blank', 'noopener,noreferrer');
     setSent(true);
     setTimeout(() => { setSent(false); setOpen(false); setForm({ nombre: '', telefono: '', servicio: '' }); }, 2500);
   };
@@ -81,8 +82,8 @@ export default function ReservaWidget() {
               <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
                 <span className="text-green-600 text-xl">✓</span>
               </div>
-              <p className="font-heading font-bold text-brand-navy text-sm">¡Solicitud enviada!</p>
-              <p className="font-body text-text-muted text-xs mt-1">Te contactaremos pronto.</p>
+              <p className="font-heading font-bold text-brand-navy text-sm">¡Abriendo WhatsApp!</p>
+              <p className="font-body text-text-muted text-xs mt-1">Termina de enviarnos el mensaje 👍</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3">
@@ -140,10 +141,10 @@ export default function ReservaWidget() {
                 className="w-full flex items-center justify-center gap-2 text-white
                            font-heading font-semibold py-3 rounded-xl text-sm
                            transition-all duration-300 hover:scale-[1.02] active:scale-95"
-                style={{ backgroundColor: '#0d6efd', boxShadow: '0 4px 16px rgba(13,110,253,0.35)' }}
+                style={{ backgroundColor: '#198754', boxShadow: '0 4px 16px rgba(25,135,84,0.35)' }}
               >
-                Agendar Hora
-                <ArrowRight size={15} />
+                <MessageCircle size={15} />
+                Agendar por WhatsApp
               </button>
             </form>
           )}

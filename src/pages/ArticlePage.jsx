@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
 import { ArrowLeft, Phone, ChevronRight, Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import { ARTICLES } from '../data/articles';
+import { waLink, waServiceMessage } from '../lib/whatsapp';
 import FociLogo from '../components/FociLogo';
 
 function Block({ block }) {
@@ -171,7 +172,7 @@ export default function ArticlePage() {
                       style={{ backgroundColor: '#0d6efd' }}>
                   Ver {article.relatedLabel} <ArrowRight size={15} />
                 </Link>
-                <a href="https://wa.me/56965545777" target="_blank" rel="noopener noreferrer"
+                <a href={waLink(waServiceMessage(article.relatedLabel))} target="_blank" rel="noopener noreferrer"
                    className="inline-flex items-center gap-2 font-heading font-semibold px-6 py-3.5 rounded-full text-sm transition-all duration-300 hover:scale-105"
                    style={{ backgroundColor: '#198754' }}>
                   WhatsApp

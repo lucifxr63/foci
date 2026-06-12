@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, Globe, MessageCircle, ExternalLink, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FociLogo from './FociLogo';
+import { waLink, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 const QUICK_LINKS = [
   { label: 'Inicio',         href: '#hero'          },
@@ -56,14 +57,15 @@ export default function Footer() {
             </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="#contacto"
-                onClick={(e) => nav(e, '#contacto')}
+                href={waLink(WA_GENERIC_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white font-heading font-bold
                            px-7 py-3.5 rounded-full text-sm transition-all duration-300
                            hover:bg-blue-50 hover:scale-105 active:scale-95"
                 style={{ color: '#0d6efd' }}
               >
-                Reservar Hora
+                <MessageCircle size={15} /> Reservar Hora
               </a>
               <a
                 href="tel:+56965545777"

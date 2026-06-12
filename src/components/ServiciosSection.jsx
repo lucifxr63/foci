@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, X, Phone, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, X, Phone, Calendar, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 import { SERVICES } from '../data/services';
+import { waLink, waServiceMessage, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 export default function ServiciosSection() {
   const [selected, setSelected] = useState(null);
@@ -30,11 +31,6 @@ export default function ServiciosSection() {
     } else {
       container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     }
-  };
-
-  const scrollToContact = () => {
-    setSelected(null);
-    document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -123,16 +119,17 @@ export default function ServiciosSection() {
 
         {/* ── Bottom CTA ──────────────────────────────────────────────── */}
         <div className="text-center">
-          <button
-            onClick={scrollToContact}
+          <a
+            href={waLink(WA_GENERIC_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-white font-heading font-semibold
                        px-8 py-3.5 rounded-full text-sm transition-all duration-300
                        hover:scale-105 active:scale-95"
-            style={{ backgroundColor: '#0d6efd', boxShadow: '0 8px 24px rgba(13,110,253,0.35)' }}
+            style={{ backgroundColor: '#198754', boxShadow: '0 8px 24px rgba(25,135,84,0.35)' }}
           >
-            Agendar una Evaluación
-            <ArrowRight size={16} />
-          </button>
+            <MessageCircle size={16} /> Agendar una Evaluación
+          </a>
         </div>
 
       </div>
@@ -198,14 +195,16 @@ export default function ServiciosSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={scrollToContact}
+                <a
+                  href={waLink(waServiceMessage(selected.shortTitle))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 text-white
-                             font-heading font-bold py-3.5 px-6 rounded-xl text-sm transition-all duration-300"
-                  style={{ backgroundColor: '#0d6efd', boxShadow: '0 4px 14px rgba(13,110,253,0.3)' }}
+                             font-heading font-bold py-3.5 px-6 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
+                  style={{ backgroundColor: '#198754', boxShadow: '0 4px 14px rgba(25,135,84,0.3)' }}
                 >
-                  Agendar este servicio <ArrowRight size={16} />
-                </button>
+                  <MessageCircle size={16} /> Agendar por WhatsApp
+                </a>
                 <Link
                   to={`/${selected.slug}`}
                   className="inline-flex items-center justify-center gap-2 border-2 border-[#0d6efd]

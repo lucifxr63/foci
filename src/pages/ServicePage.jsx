@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
 import { ArrowLeft, Phone, ChevronRight, CheckCircle2, Calendar, MapPin, Clock } from 'lucide-react';
 import { SERVICES } from '../data/services';
+import { waLink, waServiceMessage } from '../lib/whatsapp';
 import FociLogo from '../components/FociLogo';
 
 export default function ServicePage() {
@@ -134,7 +135,9 @@ export default function ServicePage() {
 
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="/#contacto"
+                  href={waLink(waServiceMessage(service.shortTitle))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white font-heading font-semibold
                              px-8 py-4 rounded-full text-base transition-all duration-300 hover:scale-105"
                   style={{ backgroundColor: '#0d6efd', boxShadow: '0 8px 32px rgba(13,110,253,0.50)' }}
@@ -142,7 +145,7 @@ export default function ServicePage() {
                   <Calendar size={18} /> Agendar Hora
                 </a>
                 <a
-                  href="https://wa.me/56965545777"
+                  href={waLink(waServiceMessage(service.shortTitle))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-heading font-semibold px-8 py-4
@@ -237,13 +240,14 @@ export default function ServicePage() {
                   <h3 className="font-heading font-bold text-lg mb-2">{service.shortTitle}</h3>
                   <p className="font-body text-blue-200 text-sm mb-6 leading-relaxed">{service.desc}</p>
 
-                  <a href="/#contacto"
+                  <a href={waLink(waServiceMessage(service.shortTitle))}
+                     target="_blank" rel="noopener noreferrer"
                      className="block text-center text-white font-heading font-bold py-3.5 rounded-xl text-sm
                                 transition-all duration-300 hover:scale-105 mb-3"
                      style={{ backgroundColor: '#0d6efd' }}>
                     Reservar Hora
                   </a>
-                  <a href="https://wa.me/56965545777"
+                  <a href={waLink(waServiceMessage(service.shortTitle))}
                      target="_blank" rel="noopener noreferrer"
                      className="block text-center text-white font-heading font-semibold py-3.5 rounded-xl text-sm
                                 transition-all duration-300 hover:scale-105 mb-3"

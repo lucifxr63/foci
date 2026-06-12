@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { waLink, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 const METRICS = [
   { value: '+500',   label: 'Pacientes atendidos' },
@@ -220,8 +221,10 @@ export default function HeroSection() {
             className="animate-fade-up opacity-0 flex flex-wrap gap-4 mb-14"
             style={{ animationDelay: '450ms', animationFillMode: 'forwards' }}
           >
-            <button
-              onClick={() => scrollTo('contacto')}
+            <a
+              href={waLink(WA_GENERIC_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
               id="hero-cta-reservar"
               className="inline-flex items-center gap-2 text-white font-heading font-semibold
                          px-8 py-4 rounded-full text-base transition-all duration-300
@@ -231,7 +234,7 @@ export default function HeroSection() {
               onMouseLeave={e => e.currentTarget.style.backgroundColor = '#0d6efd'}
             >
               Reservar Mi Evaluación <ArrowRight size={18} />
-            </button>
+            </a>
             <button
               onClick={() => scrollTo('servicios')}
               id="hero-cta-servicios"
