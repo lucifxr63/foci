@@ -86,7 +86,7 @@ export default function LavadoSection() {
 
             <div className="relative rounded-3xl overflow-hidden shadow-card-lg">
               <img
-                src="/service-ear-wash.png"
+                src="/service-ear-wash.webp"
                 alt="Lavado de oídos profesional en FOCI"
                 className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
               />

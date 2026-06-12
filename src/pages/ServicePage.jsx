@@ -31,7 +31,7 @@ export default function ServicePage() {
         <meta property="og:title" content={service.metaTitle} />
         <meta property="og:description" content={service.metaDesc} />
         <meta property="og:url" content={`https://foci.cl/${service.slug}`} />
-        <meta property="og:image" content={`https://foci.cl${service.image}`} />
+        <meta property="og:image" content="https://foci.cl/og-image.jpg" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

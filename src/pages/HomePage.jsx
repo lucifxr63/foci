@@ -22,7 +22,7 @@ export default function HomePage() {
         <meta property="og:description" content="Especialistas en audiometría, lavado de oídos, terapia del lenguaje y fonoaudiología clínica en Temuco, Chile. Atención Lun–Sáb. +56 9 6554 5777." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://foci.cl/" />
-        <meta property="og:image" content="https://foci.cl/logo-foci.png" />
+        <meta property="og:image" content="https://foci.cl/og-image.jpg" />
         <meta property="og:locale" content="es_CL" />
         <meta property="og:site_name" content="FOCI — Fonoaudiología Clínica Integral" />
         <script type="application/ld+json">{JSON.stringify({

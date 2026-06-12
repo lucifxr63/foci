@@ -3,17 +3,17 @@ import { ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const GALLERY = [
   {
-    src:   '/clinic-space-v3-1.png',
+    src:   '/clinic-space-v3-1.webp',
     alt:   'Box de evaluación y diagnóstico clínico de FOCI',
     label: 'Box de Evaluación',
   },
   {
-    src:   '/clinic-space-v3-2.png',
+    src:   '/clinic-space-v3-2.webp',
     alt:   'Cómoda sala de atención y recepción fonoaudiológica',
     label: 'Sala de Consulta',
   },
   {
-    src:   '/clinic-space-v3-3.png',
+    src:   '/clinic-space-v3-3.webp',
     alt:   'Equipamiento de otoscopía y herramientas clínicas',
     label: 'Equipamiento Clínico',
   },

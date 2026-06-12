@@ -52,7 +52,7 @@ export default function ArticlePage() {
         <meta property="og:title" content={article.metaTitle} />
         <meta property="og:description" content={article.metaDesc} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content={img} />
+        <meta property="og:image" content="https://foci.cl/og-image.jpg" />
         <meta property="og:type" content="article" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

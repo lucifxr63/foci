@@ -43,7 +43,7 @@ export default function InstagramSection() {
           <div className="relative group rounded-3xl overflow-hidden shadow-card border border-slate-100/80 bg-white p-3">
             <div className="relative rounded-2xl overflow-hidden aspect-[3/2] md:aspect-[3/2] lg:aspect-[3/2]">
               <img
-                src="/instagram-grid.png"
+                src="/instagram-grid.webp"
                 alt="Publicaciones de Instagram de FOCI Fonoaudiología"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

@@ -16,7 +16,7 @@ export default function BlogPage() {
         <meta property="og:title" content="Blog de Salud Auditiva y Lenguaje | FOCI Fonoaudiología" />
         <meta property="og:description" content="Guías y consejos sobre audición, lenguaje y fonoaudiología clínica por el equipo de FOCI en Temuco." />
         <meta property="og:url" content="https://foci.cl/blog" />
-        <meta property="og:image" content="https://foci.cl/logo-foci.png" />
+        <meta property="og:image" content="https://foci.cl/og-image.jpg" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

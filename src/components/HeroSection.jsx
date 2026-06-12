@@ -17,15 +17,15 @@ const BADGES = [
 /* ── Carrusel de imágenes de fondo ─────────────────────────────────────── */
 const SLIDES = [
   {
-    src:  '/hero-bg.png',
+    src:  '/hero-bg.webp',
     alt:  'Especialista realizando evaluación auditiva',
   },
   {
-    src:  '/hero-slide2.png',
+    src:  '/hero-slide2.webp',
     alt:  'Audiometría con tecnología de vanguardia',
   },
   {
-    src:  '/hero-slide3.png',
+    src:  '/hero-slide3.webp',
     alt:  'Otoscopía profesional en clínica FOCI',
   },
 ];
