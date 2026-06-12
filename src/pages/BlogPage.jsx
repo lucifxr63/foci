@@ -10,7 +10,7 @@ export default function BlogPage() {
   return (
     <>
       <Head>
-        <title>Blog de Salud Auditiva y Lenguaje | FOCI Fonoaudiología Temuco</title>
+        <title>Blog de Salud Auditiva y Lenguaje | FOCI</title>
         <meta name="description" content="Artículos sobre audición, lenguaje infantil, lavado de oídos, audiometría y fonoaudiología, escritos por las profesionales de FOCI en Temuco." />
         <link rel="canonical" href="https://foci.cl/blog" />
         <meta property="og:title" content="Blog de Salud Auditiva y Lenguaje | FOCI Fonoaudiología" />

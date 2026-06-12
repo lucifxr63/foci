@@ -14,7 +14,7 @@ export const ARTICLES = [
   {
     slug: 'a-que-edad-habla-un-nino',
     title: '¿A qué edad debe hablar un niño? Hitos del lenguaje y señales de alerta',
-    metaTitle: '¿A qué edad habla un niño? Hitos del lenguaje y señales de alerta | FOCI',
+    metaTitle: '¿A qué edad habla un niño? Señales de alerta | FOCI',
     metaDesc: 'Guía de hitos del lenguaje por edad (1 a 5 años), señales de alerta de retraso o TEL y cuándo consultar a un fonoaudiólogo en Temuco. Por FOCI Fonoaudiología.',
     excerpt: 'Cada niño tiene su ritmo, pero existen hitos esperables del lenguaje a cada edad. Conoce las señales de alerta y cuándo conviene una evaluación fonoaudiológica.',
     date: '2026-05-12',
@@ -75,7 +75,7 @@ export const ARTICLES = [
   {
     slug: 'tapon-de-cerumen-sintomas-lavado-de-oidos',
     title: 'Tapón de cerumen: síntomas, causas y cuándo hacer un lavado de oídos',
-    metaTitle: 'Tapón de Cerumen: Síntomas y Cuándo Hacer un Lavado de Oídos | FOCI',
+    metaTitle: 'Tapón de Cerumen: Síntomas y Lavado de Oídos | FOCI',
     metaDesc: 'Síntomas del tapón de cerumen, por qué no debes usar cotonitos y cuándo es necesario un lavado de oídos profesional en Temuco. Por FOCI Fonoaudiología.',
     excerpt: 'Oído tapado, picazón o baja audición repentina pueden ser un tapón de cerumen. Te explicamos los síntomas, qué evitar y cuándo hacer un lavado de oídos profesional.',
     date: '2026-05-26',
@@ -121,7 +121,7 @@ export const ARTICLES = [
   {
     slug: 'audiometria-que-es-como-se-hace',
     title: 'Audiometría: qué es, cómo se hace y cuándo necesitas una',
-    metaTitle: 'Audiometría: Qué es, Cómo se Hace y Cuándo Necesitas Una | FOCI Temuco',
+    metaTitle: 'Audiometría: Qué es y Cómo se Hace | FOCI Temuco',
     metaDesc: 'Qué es una audiometría, cómo es el examen paso a paso, cómo se lee un audiograma y cuándo conviene hacerse uno. Audiometría profesional en Temuco — FOCI.',
     excerpt: 'La audiometría mide con precisión tu capacidad auditiva. Te explicamos en qué consiste el examen, cómo se interpreta el audiograma y cuándo deberías hacerte uno.',
     date: '2026-06-04',
