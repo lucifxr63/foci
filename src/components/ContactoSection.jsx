@@ -1,12 +1,6 @@
 import { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, Phone, Mail, MapPin, Clock, Calendar } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Phone, Mail, MapPin, Clock, Calendar } from 'lucide-react';
 import { waLink, waServiceMessage, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
-
-// En producción (Netlify): redirigido a /.netlify/functions/contact via netlify.toml
-// En desarrollo local: usa el backend Express en localhost:5000
-const API_URL = import.meta.env.PROD
-  ? '/api/contact'
-  : 'http://localhost:5000/api/contact';
 
 const SERVICIOS_OPTIONS = [
   'Consulta General',
@@ -38,10 +32,9 @@ const CONTACT_INFO = [
 const INIT = { nombre: '', telefono: '', servicio: '', horario: '', mensaje: '' };
 
 export default function ContactoSection() {
-  const [form,     setForm]     = useState(INIT);
-  const [errors,   setErrors]   = useState({});
-  const [status,   setStatus]   = useState('idle');
-  const [apiError, setApiError] = useState('');
+  const [form,   setForm]   = useState(INIT);
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState('idle');
 
   const validate = () => {
     const e = {};
@@ -62,32 +55,19 @@ export default function ContactoSection() {
     if (errors[name]) setErrors(p => ({ ...p, [name]: '' }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const v = validate();
     if (Object.keys(v).length) { setErrors(v); return; }
 
-    setStatus('loading');
-    setApiError('');
-    try {
-      const res  = await fetch(API_URL, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({
-          nombre:  form.nombre,
-          email:   'sin-email@foci.cl',
-          telefono: form.telefono,
-          mensaje: `Servicio: ${form.servicio} | Horario: ${form.horario}${form.mensaje ? ' | ' + form.mensaje : ''}`,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.message);
-      setStatus('success');
-      setForm(INIT);
-    } catch (err) {
-      setStatus('error');
-      setApiError(err.message || 'Error al enviar. Por favor intenta nuevamente.');
-    }
+    const msg = `Hola FOCI 👋, soy ${form.nombre}. Quiero agendar una hora para *${form.servicio}*.`
+      + ` Horario preferido: ${form.horario}.`
+      + (form.mensaje ? ` ${form.mensaje}` : '')
+      + ` Mi teléfono de contacto: ${form.telefono}.`;
+    window.open(waLink(msg), '_blank', 'noopener,noreferrer');
+
+    setStatus('success');
+    setForm(INIT);
   };
 
   const fieldBase = `w-full px-4 py-3.5 rounded-xl border font-body text-[0.95rem] text-text-dark
@@ -141,19 +121,11 @@ export default function ContactoSection() {
                                 rounded-2xl p-5 mb-6">
                   <CheckCircle2 size={22} className="text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-heading font-bold text-green-800 mb-1">¡Hora agendada!</p>
+                    <p className="font-heading font-bold text-green-800 mb-1">¡Abriendo WhatsApp!</p>
                     <p className="font-body text-green-700 text-sm">
-                      Gracias, {form.nombre || 'paciente'}. Te contactaremos a la brevedad para confirmar.
+                      Termina de enviarnos el mensaje y coordinamos tu hora a la brevedad.
                     </p>
                   </div>
-                </div>
-              )}
-
-              {status === 'error' && (
-                <div className="flex items-start gap-4 bg-red-50 border border-red-200
-                                rounded-2xl p-5 mb-6">
-                  <AlertCircle size={22} className="text-red-500 flex-shrink-0 mt-0.5" />
-                  <p className="font-body text-red-600 text-sm">{apiError}</p>
                 </div>
               )}
 
@@ -260,18 +232,12 @@ export default function ContactoSection() {
                 <button
                   type="submit"
                   id="form-submit-btn"
-                  disabled={status === 'loading'}
                   className="w-full inline-flex items-center justify-center gap-2
                              text-white font-heading font-semibold py-4 rounded-full text-base
-                             transition-all duration-300 hover:scale-[1.02] active:scale-95
-                             disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  style={{ backgroundColor: '#0d6efd', boxShadow: '0 8px 24px rgba(13,110,253,0.35)' }}
+                             transition-all duration-300 hover:scale-[1.02] active:scale-95"
+                  style={{ backgroundColor: '#198754', boxShadow: '0 8px 24px rgba(25,135,84,0.35)' }}
                 >
-                  {status === 'loading' ? (
-                    <><Loader2 size={18} className="animate-spin" />Enviando…</>
-                  ) : (
-                    <><Send size={18} />Agendar Hora</>
-                  )}
+                  <Send size={18} />Agendar por WhatsApp
                 </button>
 
                 <p className="text-text-muted text-xs text-center font-body">
