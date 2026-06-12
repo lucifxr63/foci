@@ -5,14 +5,24 @@
 
 ## Servicios
 
-- **Consulta General Fonoaudiológica**: Evaluación inicial para determinar necesidades terapéuticas en comunicación, lenguaje, habla, voz, audición y deglución.
-- **Lavado de Oídos**: Irrigación auricular segura e indolora (~20 min). Remueve tapones de cerumen con micro-curetas o irrigación de agua templada a presión controlada.
-- **Audiometría**: Examen del umbral auditivo por vía aérea y ósea en cabina sonoamortiguada. Genera audiograma para diagnóstico de pérdida auditiva.
-- **Terapia de Lenguaje y Habla Adulto**: Rehabilitación de habilidades comunicativas en adultos con afasias, disartrias u otros trastornos neurológicos.
-- **Terapia de Lenguaje y Habla Infantojuvenil**: Terapia para niños y adolescentes con retraso del lenguaje, TEL o dificultades de comunicación social. Enfoque lúdico y familiar.
-- **Evaluación ADOS-2**: Aplicación de la Escala de Observación para el Diagnóstico del Autismo (TEA), referencia internacional, adaptada a distintas edades y niveles de lenguaje.
-- **Rehabilitación Vestibular**: Ejercicios terapéuticos para compensar alteraciones del equilibrio. Eficaz para VPPB, inestabilidad y mareos crónicos.
-- **Evaluación y Terapia de Voz**: Diagnóstico y rehabilitación de disfonías funcionales u orgánicas (nódulos, pólipos). Indicado para docentes, locutores y cantantes.
+Cada servicio tiene una página dedicada con descripción, beneficios y preguntas frecuentes:
+
+- **Consulta General Fonoaudiológica** (https://foci.cl/consulta-general): Evaluación inicial (45–60 min) para determinar necesidades terapéuticas en comunicación, lenguaje, habla, voz, audición y deglución. Desde los 3 años. No requiere derivación médica.
+- **Lavado de Oídos** (https://foci.cl/lavado-de-oidos): Irrigación auricular segura e indolora (~20 min). Remueve tapones de cerumen con micro-curetas o irrigación de agua templada a presión controlada. Incluye otoscopía previa.
+- **Audiometría** (https://foci.cl/audiometria): Examen del umbral auditivo por vía aérea y ósea en cabina sonoamortiguada (30–45 min). Genera un audiograma para diagnóstico de pérdida auditiva y adaptación de audífonos.
+- **Terapia de Lenguaje y Habla Adulto** (https://foci.cl/terapia-lenguaje-adulto): Rehabilitación de habilidades comunicativas en adultos con afasias, disartrias post-ACV u otros trastornos neurológicos.
+- **Terapia de Lenguaje Infantil** (https://foci.cl/terapia-lenguaje-infantil): Terapia para niños y adolescentes con retraso del lenguaje, TEL o dificultades de comunicación social. Desde los 3 años, enfoque lúdico y familiar.
+- **Evaluación ADOS-2** (https://foci.cl/evaluacion-ados-2): Aplicación de la Escala de Observación para el Diagnóstico del Autismo (TEA), referencia internacional, desde los 12 meses. Profesional certificada. Incluye informe clínico.
+- **Rehabilitación Vestibular** (https://foci.cl/rehabilitacion-vestibular): Ejercicios terapéuticos y maniobras de reposicionamiento (Epley) para compensar alteraciones del equilibrio. Eficaz para VPPB, inestabilidad y mareos crónicos.
+- **Evaluación y Terapia de Voz** (https://foci.cl/trastorno-de-la-voz): Diagnóstico y rehabilitación de disfonías funcionales u orgánicas (nódulos, pólipos). Indicado para docentes, locutores y cantantes.
+
+## Blog (recursos de divulgación)
+
+Artículos escritos por las fonoaudiólogas de FOCI. Índice en https://foci.cl/blog
+
+- **¿A qué edad debe hablar un niño? Hitos del lenguaje y señales de alerta** (https://foci.cl/blog/a-que-edad-habla-un-nino): Hitos esperables del lenguaje de 1 a 5 años, señales de alerta de retraso o TEL y cuándo consultar.
+- **Tapón de cerumen: síntomas, causas y cuándo hacer un lavado de oídos** (https://foci.cl/blog/tapon-de-cerumen-sintomas-lavado-de-oidos): Síntomas del tapón de cerumen, por qué no usar cotonitos y en qué consiste un lavado profesional.
+- **Audiometría: qué es, cómo se hace y cuándo necesitas una** (https://foci.cl/blog/audiometria-que-es-como-se-hace): El examen paso a paso, cómo se lee un audiograma y cuándo conviene hacerse uno.
 
 ## Profesionales
 

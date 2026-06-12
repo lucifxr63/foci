@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock, Globe, MessageCircle, ExternalLink, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FociLogo from './FociLogo';
 
 const QUICK_LINKS = [
@@ -140,6 +141,18 @@ export default function Footer() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    to="/blog"
+                    className="font-body text-blue-200 text-sm transition-colors duration-200
+                               hover:text-white flex items-center gap-1.5 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full transition-all duration-200
+                                     group-hover:bg-white group-hover:scale-150"
+                          style={{ backgroundColor: '#0d6efd' }} />
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
 
