@@ -48,6 +48,20 @@ const PROFILES = [
       'Comprometida con potenciar las habilidades comunicativas y el bienestar del paciente',
     ],
   },
+  {
+    name: 'Catalina Herrera',
+    role: 'FONOAUDIÓLOGA CLÍNICA',
+    subtitle: 'Especialista en Deglución y Neurorrehabilitación',
+    image: '/professional-catalina.jpeg',
+    bio: 'Fonoaudióloga clínica enfocada en la rehabilitación de adultos y adultos mayores. Catalina se especializa en el manejo de los trastornos de la deglución y en la neurorrehabilitación, acompañando a pacientes en contextos hospitalarios y posthospitalarios con un abordaje integral y cercano orientado a recuperar su funcionalidad y calidad de vida.',
+    credentials: [
+      'Trastornos de la deglución (disfagia)',
+      'Neurorrehabilitación de adultos y adultos mayores',
+      'Manejo integral de pacientes traqueostomizados',
+      'Rehabilitación de voz, habla y lenguaje',
+      'Atención hospitalaria y posthospitalización',
+    ],
+  },
 ];
 
 export default function QuienesSomosSection() {
