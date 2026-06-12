@@ -1,4 +1,4 @@
-import { Ear, Droplets, BarChart2, Activity, Mic2, BookOpen, Brain, Users } from 'lucide-react';
+import { Ear, Droplets, BarChart2, Activity, Mic2, BookOpen, Brain, Users, Soup } from 'lucide-react';
 
 export const SERVICES = [
   {
@@ -210,6 +210,33 @@ export const SERVICES = [
       { q: '¿Quiénes tienen más riesgo de trastornos de voz?', a: 'Los profesionales que usan la voz intensivamente: docentes, locutores, cantantes, actores y vendedores. También personas con reflujo gastroesofágico o tabaquismo.' },
       { q: '¿Qué incluye la terapia vocal?', a: 'Incluye evaluación perceptual de la voz, técnicas de higiene vocal, ejercicios de respiración y resonancia, trabajo de proyección y corrección de patrones vocales inadecuados.' },
       { q: '¿Se pueden tratar los nódulos vocales sin cirugía?', a: 'Muchos casos de nódulos y pólipos vocales en etapa inicial se resuelven con terapia fonoaudiológica sin necesidad de cirugía. La intervención temprana mejora significativamente el pronóstico.' },
+    ],
+  },
+  {
+    icon: Soup,
+    slug: 'deglucion-disfagia',
+    shortTitle: 'Deglución',
+    title: 'Evaluación y Terapia de Deglución en Temuco — Disfagia',
+    desc: 'Evaluación y tratamiento de las dificultades para tragar (disfagia).',
+    color: '#fd7e14',
+    bg: '#fff7ed',
+    tag: 'Especializado',
+    image: '/clinic-space-1.png',
+    detail: 'Evaluación e intervención de los trastornos de la deglución (disfagia): la dificultad para tragar alimentos, líquidos o saliva de forma segura. Es frecuente tras un accidente cerebrovascular, en enfermedades neurológicas y en adultos mayores. El objetivo es lograr una alimentación segura, prevenir aspiraciones y mejorar la calidad de vida del paciente.',
+    metaTitle: 'Terapia de Deglución y Disfagia en Temuco | FOCI Fonoaudiología',
+    metaDesc: 'Evaluación y tratamiento de la disfagia (dificultad para tragar) en Temuco. Abordaje de la deglución en adultos mayores, post-ACV, pacientes neurológicos y traqueostomizados. Agenda en FOCI.',
+    highlights: [
+      'Evaluación clínica de la deglución (disfagia orofaríngea)',
+      'Intervención post-ACV y en enfermedades neurológicas',
+      'Manejo en adultos mayores y pacientes traqueostomizados',
+      'Estrategias para una alimentación segura y prevención de aspiraciones',
+    ],
+    faq: [
+      { q: '¿Qué es la disfagia?', a: 'La disfagia es la dificultad para tragar alimentos, líquidos o saliva de forma segura y eficaz. Puede provocar atragantamientos, sensación de que la comida se queda atascada o que parte del alimento pase a la vía respiratoria.' },
+      { q: '¿Cuáles son las causas más frecuentes?', a: 'Las causas más comunes son los accidentes cerebrovasculares (ACV), enfermedades neurológicas (Parkinson, demencias, ELA), el envejecimiento y las secuelas de cirugías o de intubación prolongada.' },
+      { q: '¿Por qué es importante tratar la disfagia?', a: 'Una disfagia no tratada puede provocar desnutrición, deshidratación y neumonías por aspiración. La intervención fonoaudiológica mejora la seguridad al comer y la calidad de vida del paciente.' },
+      { q: '¿En qué consiste el tratamiento?', a: 'Incluye una evaluación clínica de la deglución, ejercicios para fortalecer la musculatura involucrada, adaptación de la consistencia de alimentos y líquidos, y estrategias posturales para tragar de forma segura.' },
+      { q: '¿Atienden a adultos mayores y pacientes traqueostomizados?', a: 'Sí. Contamos con experiencia en neurorrehabilitación de adultos y adultos mayores y en el manejo integral de pacientes traqueostomizados.' },
     ],
   },
 ];

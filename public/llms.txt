@@ -15,6 +15,7 @@ Cada servicio tiene una página dedicada con descripción, beneficios y pregunta
 - **Evaluación ADOS-2** (https://foci.cl/evaluacion-ados-2): Aplicación de la Escala de Observación para el Diagnóstico del Autismo (TEA), referencia internacional, desde los 12 meses. Profesional certificada. Incluye informe clínico.
 - **Rehabilitación Vestibular** (https://foci.cl/rehabilitacion-vestibular): Ejercicios terapéuticos y maniobras de reposicionamiento (Epley) para compensar alteraciones del equilibrio. Eficaz para VPPB, inestabilidad y mareos crónicos.
 - **Evaluación y Terapia de Voz** (https://foci.cl/trastorno-de-la-voz): Diagnóstico y rehabilitación de disfonías funcionales u orgánicas (nódulos, pólipos). Indicado para docentes, locutores y cantantes.
+- **Evaluación y Terapia de Deglución / Disfagia** (https://foci.cl/deglucion-disfagia): Evaluación e intervención de la dificultad para tragar (disfagia) en adultos mayores, post-ACV, pacientes neurológicos y traqueostomizados. Busca una alimentación segura y prevenir aspiraciones.
 
 ## Blog (recursos de divulgación)
 
