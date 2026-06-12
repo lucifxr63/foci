@@ -10,7 +10,7 @@ const METRICS = [
 
 const BADGES = [
   'Profesionales Certificados',
-  'Atención Money Service',
+  'Atención Personalizada',
   'Calidad de Servicio',
 ];
 
