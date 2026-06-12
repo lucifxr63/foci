@@ -24,7 +24,7 @@ const PROFILES = [
     name: 'Lesly Villagrán Obreque',
     role: 'DIRECTORA CLÍNICA',
     subtitle: 'Fonoaudióloga Directora de FOCI',
-    image: '/professional-lesly-clean.png?v=2',
+    image: '/professional-carla-clean.png?v=2',
     bio: 'Como fonoaudióloga y directora de FOCI, lidera el centro con una visión de atención personalizada y cercana. Especialista en otoscopía, videotoscopía y lavado de oídos seguro, se dedica a entregar soluciones precisas y un cuidado integral de la audición para mejorar la calidad de vida de cada uno de sus pacientes.',
     credentials: [
       'Fonoaudióloga Certificada',
@@ -38,7 +38,7 @@ const PROFILES = [
     name: 'Carla Vallejos',
     role: 'FONOAUDIÓLOGA CLÍNICA',
     subtitle: 'Especialista en Lenguaje e Intervención',
-    image: '/professional-carla-clean.png?v=2',
+    image: '/professional-lesly-clean.png?v=2',
     bio: 'Dedicada a la evaluación e intervención integral en población infantojuvenil y adultos. Carla se especializa en acompañar el desarrollo comunicativo de los más pequeños y adultos con desafíos neurológicos, entregando una atención dedicada, experta y centrada en la familia.',
     credentials: [
       'Atención Temprana para potenciar el desarrollo desde los primeros años',
