@@ -191,7 +191,7 @@ export default function Footer() {
                 {[
                   { icon: Phone,  val: '+56 9 6554 5777',       href: 'tel:+56965545777'        },
                   { icon: Mail,   val: 'contacto@foci.cl',       href: 'mailto:contacto@foci.cl' },
-                  { icon: MapPin, val: 'General Mackenna 583, Of. 504, Temuco, Chile', href: 'https://maps.google.com/?q=General+Mackenna+583+Temuco+Chile' },
+                  { icon: MapPin, val: 'General Mackenna 593, Of. 504, Temuco, Chile', href: 'https://maps.google.com/?q=General+Mackenna+593+Temuco+Chile' },
                   { icon: Clock,  val: 'Lun-Vie: 09:00-19:00/18:00 · Sáb: 09:00-15:00', href: null },
                 ].map(({ icon: Icon, val, href }, i) => (
                   <li key={i} className="flex items-start gap-3">

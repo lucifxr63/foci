@@ -71,7 +71,7 @@ export default function ServicePage() {
             "telephone": "+56965545777",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "General Mackenna 583, Of. 504",
+              "streetAddress": "General Mackenna 593, Of. 504",
               "addressLocality": "Temuco",
               "addressRegion": "La Araucanía",
               "addressCountry": "CL"
@@ -272,7 +272,7 @@ export default function ServicePage() {
                     </div>
                     <div className="flex items-start gap-2 text-xs text-blue-200 font-body">
                       <MapPin size={13} className="flex-shrink-0 mt-0.5" />
-                      <span>Gral. Mackenna 583, Of. 504, Temuco</span>
+                      <span>Gral. Mackenna 593, Of. 504, Temuco</span>
                     </div>
                   </div>
                 </div>

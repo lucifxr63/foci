@@ -25,7 +25,7 @@ const HORARIOS_OPTIONS = [
 const CONTACT_INFO = [
   { icon: Phone,  label: 'Teléfono',   value: '+56 9 6554 5777',         href: 'tel:+56965545777'           },
   { icon: Mail,   label: 'Email',      value: 'contacto@foci.cl',         href: 'mailto:contacto@foci.cl'    },
-  { icon: MapPin, label: 'Dirección',  value: 'General Mackenna 583, Of. 504, Temuco', href: 'https://maps.google.com/?q=General+Mackenna+583+Temuco+Chile' },
+  { icon: MapPin, label: 'Dirección',  value: 'General Mackenna 593, Of. 504, Temuco', href: 'https://maps.google.com/?q=General+Mackenna+593+Temuco+Chile' },
   { icon: Clock,  label: 'Horarios',   value: 'Lun-Vie: 09:00-19:00/18:00 · Sáb: 09:00-15:00', href: null },
 ];
 
@@ -315,7 +315,7 @@ export default function ContactoSection() {
               <div className="flex items-start gap-2.5 text-xs text-text-body font-body leading-relaxed pt-2 border-t border-slate-100">
                 <MapPin className="text-[#0d6efd] flex-shrink-0 mt-0.5" size={14} />
                 <span>
-                  General Mackenna 583, Of. 504<br />
+                  General Mackenna 593, Of. 504<br />
                   Temuco, Chile
                 </span>
               </div>
@@ -325,14 +325,14 @@ export default function ContactoSection() {
               <div className="relative w-full min-h-64 h-full">
                 <iframe
                   title="Ubicación FOCI"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.029807579174!2d-72.5908757!3d-38.7399896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d3ea09a15cd3%3A0x7d87bc4faeb8e860!2sGral.+Mackenna+583%2C+Temuco%2C+Araucan%C3%ADa!5e0!3m2!1ses!2scl!4v1717431200000!5m2!1ses!2scl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.029807579174!2d-72.5908757!3d-38.7399896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d3ea09a15cd3%3A0x7d87bc4faeb8e860!2sGral.+Mackenna+593%2C+Temuco%2C+Araucan%C3%ADa!5e0!3m2!1ses!2scl!4v1717431200000!5m2!1ses!2scl"
                   width="100%" height="100%"
                   style={{ border: 0, minHeight: '280px' }}
                   allowFullScreen="" loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-2xl"
                 />
-                <a href="https://maps.google.com/?q=General+Mackenna+583+Temuco+Chile"
+                <a href="https://maps.google.com/?q=General+Mackenna+593+Temuco+Chile"
                    target="_blank" rel="noopener noreferrer"
                    className="absolute bottom-4 right-4 inline-flex items-center gap-1.5
                               text-white text-xs font-semibold px-4 py-2.5 rounded-full

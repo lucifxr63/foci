@@ -14,7 +14,7 @@ los directorios (Instagram, Facebook, Doctoralia, etc.). Google premia la cohere
 | Dato | Valor oficial (usar siempre así) |
 |------|----------------------------------|
 | Nombre | **FOCI — Fonoaudiología Clínica Integral** |
-| Dirección | General Mackenna 583, Oficina 504, Temuco, La Araucanía |
+| Dirección | General Mackenna 593, Oficina 504, Temuco, La Araucanía |
 | Teléfono | +56 9 6554 5777 |
 | Email | contacto@foci.cl |
 | Web | https://foci.cl |
@@ -48,7 +48,7 @@ terapia de lenguaje y habla para niños y adultos, evaluación ADOS-2 para el
 diagnóstico del espectro autista (TEA), rehabilitación vestibular, terapia de voz y
 manejo de los trastornos de la deglución (disfagia). Atendemos desde los 3 años
 hasta adultos mayores, con profesionales certificadas y un enfoque cercano y
-personalizado. Nos ubicamos en General Mackenna 583, oficina 504, Temuco. Agenda tu
+personalizado. Nos ubicamos en General Mackenna 593, oficina 504, Temuco. Agenda tu
 hora por WhatsApp o al teléfono +56 9 6554 5777.
 ```
 
