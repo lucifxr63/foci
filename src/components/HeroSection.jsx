@@ -3,9 +3,8 @@ import { ArrowRight, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
 import { waLink, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
 
 const METRICS = [
-  { value: '+500',   label: 'Pacientes atendidos' },
-  { value: '4.9★',   label: 'Evaluación Promedio'  },
-  { value: '3+ años',  label: 'De Experiencia'     },
+  { value: '4.9★',     label: 'Valoración en Google' },
+  { value: '3+ años',  label: 'De Experiencia'      },
 ];
 
 const BADGES = [

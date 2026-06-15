@@ -1,66 +1,37 @@
 import { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Reseñas REALES verificadas de Google (4.9★ · 41 reseñas). Ver foto/share del GBP.
 const TESTIMONIOS = [
   {
-    name:    'María González',
-    age:     '42 años',
-    initials:'MG',
+    name:    'Carlos Hernández',
+    meta:    'Local Guide · Google',
+    initials:'CH',
     color:   'from-blue-500 to-blue-600',
     rating:  5,
-    text:    'Excelente atención. La fonoaudióloga fue muy detallada en la explicación de mi diagnóstico. El procedimiento de lavado fue completamente indoloro y noté la mejora de inmediato. Totalmente recomendado.',
+    text:    'Excelente atención, una muy buena profesional. Llegué sin escuchar nada en mi oído derecho y en solo 15 minutos estaba solucionado.',
     service: 'Lavado de Oídos',
-    date:    'Mayo 2025',
+    date:    'Sep 2025',
   },
   {
-    name:    'Carlos Pérez',
-    age:     '67 años',
-    initials:'CP',
+    name:    'Miguel Gómez',
+    meta:    'Reseña en Google',
+    initials:'MG',
     color:   'from-sky-500 to-cyan-500',
     rating:  5,
-    text:    'Llevé a mi papá para una evaluación auditiva completa. El trato fue impecable, muy pacientes con él. Los equipos son modernos y el box muy cómodo. Los resultados fueron entregados de forma clara y comprensible.',
-    service: 'Evaluación Auditiva',
-    date:    'Abril 2025',
+    text:    'Muy buena atención, ya son 3 veces que he asistido a la consulta. Recomiendo 100%.',
+    service: 'Paciente recurrente',
+    date:    'Sep 2025',
   },
   {
-    name:    'Valentina Soto',
-    age:     '28 años',
-    initials:'VS',
+    name:    'Makena Muñoz',
+    meta:    'Reseña en Google',
+    initials:'MM',
     color:   'from-indigo-500 to-blue-500',
     rating:  5,
-    text:    'Fui por molestias auditivas y la videotoscopía fue reveladora. Ver en tiempo real el interior de mi oído me ayudó a entender el problema. La profesional explicó todo con mucha claridad y el tratamiento fue eficaz.',
-    service: 'Videotoscopía',
-    date:    'Abril 2025',
-  },
-  {
-    name:    'Roberto Muñoz',
-    age:     '55 años',
-    initials:'RM',
-    color:   'from-blue-600 to-indigo-600',
-    rating:  5,
-    text:    'La atención fue de primera desde que llegué. La clínica es limpia, moderna y acogedora. La fonoaudióloga es muy profesional y se nota que le apasiona su trabajo. Ya agendar mi próxima revisión anual.',
-    service: 'Control Auditivo',
-    date:    'Marzo 2025',
-  },
-  {
-    name:    'Ana Fuentes',
-    age:     '35 años',
-    initials:'AF',
-    color:   'from-cyan-500 to-sky-600',
-    rating:  5,
-    text:    'Muy buena experiencia. Pedí hora online y me confirmaron al día siguiente. El precio es muy razonable para la calidad del servicio que entregan. Salí muy contenta y sin la molestia que tenía hace semanas.',
-    service: 'Lavado de Oídos',
-    date:    'Marzo 2025',
-  },
-  {
-    name:    'Jorge Ibáñez',
-    age:     '49 años',
-    initials:'JI',
-    color:   'from-blue-500 to-sky-500',
-    rating:  5,
-    text:    'Vine por recomendación de un amigo y no me arrepiento. La evaluación fue muy completa, me realizaron varios exámenes en una sola cita. La profesional es muy atenta y el informe fue muy detallado. Volveré sin duda.',
-    service: 'Evaluación Integral',
-    date:    'Febrero 2025',
+    text:    'Excelente profesional, muy buena la atención, puntual. 100% recomendado.',
+    service: 'Atención en FOCI',
+    date:    'Sep 2025',
   },
 ];
 
@@ -78,7 +49,7 @@ function StarRating({ count }) {
   );
 }
 
-function TestimonialCard({ name, age, initials, color, rating, text, service, date }) {
+function TestimonialCard({ name, meta, initials, color, rating, text, service, date }) {
   return (
     <div className="card p-7 flex flex-col group h-full justify-between">
       <div>
@@ -118,7 +89,7 @@ function TestimonialCard({ name, age, initials, color, rating, text, service, da
             </div>
             <div>
               <p className="font-heading font-semibold text-brand-navy text-sm">{name}</p>
-              <p className="font-body text-text-muted text-xs">{age}</p>
+              <p className="font-body text-text-muted text-xs">{meta}</p>
             </div>
           </div>
           <span className="font-body text-text-muted text-xs">{date}</span>
@@ -190,7 +161,7 @@ export default function TestimoniosSection() {
               ))}
             </div>
             <span className="font-heading font-bold text-brand-navy text-sm">4.9</span>
-            <span className="text-text-muted text-sm font-body">· +500 reseñas verificadas</span>
+            <span className="text-text-muted text-sm font-body">· Opiniones reales en Google</span>
           </div>
         </div>
 
