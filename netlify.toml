@@ -11,12 +11,9 @@
   targetPort      = 5173
   autoLaunch      = false
 
-# ─── Redirects ────────────────────────────────────────────────────────────────
-# SPA fallback: todas las rutas desconocidas → index.html
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
+# Nota: el sitio es SSG — cada ruta tiene su propio HTML pre-renderizado, así que
+# NO usamos SPA fallback. Netlify sirve public/404.html (status 404) en rutas
+# inexistentes, evitando "soft 404" que penaliza Google.
 
 # ─── Headers de seguridad ─────────────────────────────────────────────────────
 [[headers]]

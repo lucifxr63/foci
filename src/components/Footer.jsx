@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin, Clock, Globe, MessageCircle, ExternalLink, ArrowUp
 import { Link } from 'react-router-dom';
 import FociLogo from './FociLogo';
 import { waLink, WA_GENERIC_MESSAGE } from '../lib/whatsapp';
+import { SERVICES } from '../data/services';
 
 const QUICK_LINKS = [
   { label: 'Inicio',         href: '#hero'          },
@@ -11,14 +12,8 @@ const QUICK_LINKS = [
   { label: 'Contáctanos',    href: '#contacto'      },
 ];
 
-const SERVICES_LINKS = [
-  { label: 'Evaluación Auditiva Integral', href: '#servicios' },
-  { label: 'Otoscopía / Videotoscopía',    href: '#servicios' },
-  { label: 'Lavado de Oídos',              href: '#servicios' },
-  { label: 'Audiometrías',                  href: '#servicios' },
-  { label: 'Examen de Equilibrio',          href: '#servicios' },
-  { label: 'Neurorehabilitación',          href: '#servicios' },
-];
+// Enlaces internos a cada página de servicio (anchor descriptivo = bueno para SEO).
+const SERVICES_LINKS = SERVICES.map((s) => ({ label: s.shortTitle, slug: s.slug }));
 
 const SOCIAL = [
   { icon: Globe,          href: 'https://www.instagram.com/foci.cl/', label: 'Instagram de FOCI' },
@@ -164,11 +159,10 @@ export default function Footer() {
                 Servicios
               </h4>
               <ul className="space-y-3">
-                {SERVICES_LINKS.map(({ label, href }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      onClick={(e) => nav(e, href)}
+                {SERVICES_LINKS.map(({ label, slug }) => (
+                  <li key={slug}>
+                    <Link
+                      to={`/${slug}`}
                       className="font-body text-blue-200 text-sm transition-colors duration-200
                                  hover:text-white flex items-center gap-1.5 group"
                     >
@@ -176,7 +170,7 @@ export default function Footer() {
                                        group-hover:bg-white group-hover:scale-150"
                             style={{ backgroundColor: '#0d6efd' }} />
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

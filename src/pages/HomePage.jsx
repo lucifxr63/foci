@@ -16,7 +16,6 @@ export default function HomePage() {
       <Head>
         <title>FOCI | Fonoaudiología y Evaluación Auditiva en Temuco</title>
         <meta name="description" content="Fonoaudiología clínica en Temuco: audiometría, lavado de oídos, terapia del lenguaje, ADOS-2 y rehabilitación vestibular. Atención desde los 3 años." />
-        <meta name="keywords" content="fonoaudiología Temuco, evaluación auditiva Temuco, lavado de oídos Temuco, audiometría Temuco, terapia del lenguaje Temuco, ADOS-2 Temuco, fonoaudiólogo Temuco" />
         <link rel="canonical" href="https://foci.cl/" />
         <meta property="og:title" content="FOCI | Fonoaudiología y Evaluación Auditiva en Temuco" />
         <meta property="og:description" content="Audiometría, lavado de oídos, terapia del lenguaje y más en Temuco. Atención Lun–Sáb. Agenda: +56 9 6554 5777." />
