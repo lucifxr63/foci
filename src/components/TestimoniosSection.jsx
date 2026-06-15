@@ -33,6 +33,36 @@ const TESTIMONIOS = [
     service: 'Atención en FOCI',
     date:    'Sep 2025',
   },
+  {
+    name:    'Manuel Covarrubias',
+    meta:    'Reseña en Google',
+    initials:'MC',
+    color:   'from-blue-600 to-indigo-600',
+    rating:  5,
+    text:    'Ya he atendido a mi hijo dos veces, a domicilio y en la oficina. Explica todo, es amable y tiene mucha paciencia, sobre todo con los niños. Le aclaró sus dudas porque mi hijo tenía temor de hacerlo. 100% recomendable.',
+    service: 'Atención infantil',
+    date:    'Sep 2025',
+  },
+  {
+    name:    'Gise Jerez',
+    meta:    'Reseña en Google',
+    initials:'GJ',
+    color:   'from-cyan-500 to-sky-600',
+    rating:  5,
+    text:    'Recomiendo el lavado de oídos con Lesly, excelente atención. Mi hijo tiene autismo y le explicó paso a paso lo que iba realizando, y no le dolió nada.',
+    service: 'Lavado de Oídos',
+    date:    'Ago 2025',
+  },
+  {
+    name:    'Linski K.',
+    meta:    'Reseña en Google',
+    initials:'LK',
+    color:   'from-blue-500 to-sky-500',
+    rating:  5,
+    text:    'Muy buena atención. Fui por una hora para mi pequeño y reconozco que es revoltoso, pero la fonoaudióloga tuvo mucha paciencia y cuidado con él. Sin duda volveré a su consulta.',
+    service: 'Atención infantil',
+    date:    'Ago 2025',
+  },
 ];
 
 function StarRating({ count }) {
