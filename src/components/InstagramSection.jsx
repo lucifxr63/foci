@@ -1,5 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 
+const INSTAGRAM_URL = 'https://www.instagram.com/foci.cl/';
+
 const InstagramIcon = ({ size = 24, className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -39,36 +41,31 @@ export default function InstagramSection() {
         </div>
 
         {/* ── Feed Content ────────────────────────────────────────────────── */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative group rounded-3xl overflow-hidden shadow-card border border-slate-100/80 bg-white p-3">
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/2] md:aspect-[3/2] lg:aspect-[3/2]">
-              <img
-                src="/instagram-grid.webp"
-                alt="Publicaciones de Instagram de FOCI Fonoaudiología"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              
-              {/* Glassmorphic Overlay on Hover */}
-              <div className="absolute inset-0 bg-brand-navy/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
-                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4 shadow-lg scale-75 group-hover:scale-100 transition-transform duration-500 delay-75">
-                  <InstagramIcon size={28} className="text-[#0d6efd]" />
-                </div>
-                <p className="font-heading font-bold text-white text-lg mb-1">Visita nuestro perfil</p>
-                <p className="font-body text-blue-100 text-xs">@foci.cl en Instagram</p>
-              </div>
-            </div>
+        <div className="max-w-[540px] mx-auto">
+          <div className="rounded-3xl overflow-hidden shadow-card border border-slate-100/80 bg-white p-2 sm:p-3">
+            <iframe
+              src={`${INSTAGRAM_URL}embed/`}
+              title="Perfil y publicaciones de @foci.cl en Instagram"
+              width="540"
+              height="620"
+              className="block w-full h-[620px] border-0 rounded-2xl"
+            />
           </div>
         </div>
 
         {/* ── CTA Button ─────────────────────────────────────────────────── */}
         <div className="text-center mt-12">
+          <p className="font-body text-sm text-slate-600 mb-4">
+            ¿No puedes ver las publicaciones? Visita nuestro perfil en Instagram.
+          </p>
           <a
-            href="https://www.instagram.com/foci.cl/"
+            href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#0d6efd] text-white font-heading font-semibold
                        px-8 py-3.5 rounded-full text-sm transition-all duration-300 shadow-cta
                        hover:scale-105 hover:bg-brand-navy hover:shadow-lg active:scale-95"
+            aria-label="Ver @foci.cl en Instagram (abre una nueva pestaña)"
           >
             <InstagramIcon size={16} />
             @foci.cl
